@@ -19,7 +19,14 @@ return new class extends Migration
             $table->integer('status')->default(1);
             $table->string('created_by')->nullable();
             $table->string('modified_by')->nullable();
-            $table->foreignId('divisi_id');
+            $table->foreignId('divisi_id')->constrained();
+            $table->timestamps();
+        });
+
+        Schema::create('divisi_jabatan', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('divisi_id')->constrained();
+            $table->foreignId('jabatan_id')->constrained();
             $table->timestamps();
         });
     }
@@ -31,6 +38,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('divisi_jabatan');
         Schema::dropIfExists('jabatans');
     }
 };

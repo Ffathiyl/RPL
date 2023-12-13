@@ -104,7 +104,7 @@ Route::get('Pengurus/Penilaian',[PengurusesController::class,'penilaian'])->name
 
 
 //Routes Laporan Penilaian
-Route::get('Laporan',[LaporanController::class,'index'])->name('laporans.index');
-Route::get('Laporan/Pengurus/{Nim}',[LaporanController::class,'detail'])->name('laporans.detail');
-Route::get('Laporan/Organisasi',[LaporanController::class,'indexOrg'])->name('laporans.indexOrg');
-Route::get('Laporan/Organisasi/{id}',[LaporanController::class,'detailOrg'])->name('laporans.detailOrg');
+Route::get('Laporan',[LaporanController::class,'index'])->name('laporans.index')->middleware('auth.admin');;
+Route::get('Laporan/Pengurus/{Nim}',[LaporanController::class,'detail'])->name('laporans.detail')->middleware('auth.admin');;
+Route::get('Laporan/Organisasi',[LaporanController::class,'indexOrg'])->name('laporans.indexOrg')->middleware('auth.admin');;
+Route::get('Laporan/Organisasi/{id}',[LaporanController::class,'detailOrg'])->name('laporans.detailOrg')->middleware('auth.admin');;

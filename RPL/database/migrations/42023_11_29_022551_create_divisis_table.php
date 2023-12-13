@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('status')->default(1);
             $table->string('created_by')->nullable();
             $table->string('modified_by')->nullable();
-            $table->foreignId('organisasi_id');
+            $table->foreignId('organisasi_id')->constrained();
             $table->timestamps();
         });
     }

@@ -17,8 +17,8 @@ class Jabatan extends Model
         'divisi_id',  
     ];
 
-    public function divisi(){
-        return $this->belongsTo(Divisi::class);
+    public function divisis(){
+        return $this->belongsToMany(Divisi::class);
     }
 
     public function penguruses(){

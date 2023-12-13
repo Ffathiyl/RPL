@@ -22,7 +22,7 @@ class Divisi extends Model
     }
 
     public function jabatans(){
-        return $this->hasMany(Jabatan::class);
+        return $this->belongsToMany(Jabatan::class);
     }
 
     public function penguruses(){
